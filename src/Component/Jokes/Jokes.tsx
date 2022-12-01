@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import css from "./jokes.module.css";
 
 interface JokesProps {
     counter: number;
@@ -20,7 +21,7 @@ const Jokes: React.FC<JokesProps> = ({counter}) => {
     }, [counter])
 
     return (
-        <div>
+        <div className={css.jokes}>
             {jokes}
         </div>
     );
