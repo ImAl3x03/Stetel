@@ -1,4 +1,5 @@
 import React from 'react';
+import css from "./counter.module.css"
 
 interface CounterProps {
     counter: number;
@@ -8,19 +9,23 @@ interface CounterProps {
 const Counter: React.FC<CounterProps> = ({counter, setCounter}) => {
     return (
         <>
-            <p>{"Counter: " + counter}</p>
+            <p className={`${css.paragraph} ` + (counter === 0 ? `${css.zero}` : "")}>{"Counter: " + counter}</p>
 
-            <button
-                onClick={() => setCounter(counter + 1)}
-            >
-                Increment
-            </button>
+            <div>
+                <button
+                    className={css.button}
+                    onClick={() => setCounter(counter + 1)}
+                >
+                    Increment
+                </button>
 
-            <button
-                onClick={() => setCounter(0)}
-            >
-                Reset
-            </button>
+                <button
+                    className={css.button}
+                    onClick={() => setCounter(0)}
+                >
+                    Reset
+                </button>
+            </div>
         </>
     );
 }
